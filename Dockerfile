@@ -11,7 +11,7 @@ RUN npm run build && npm prune --omit=dev
 
 # ---- runtime stage --------------------------------------------------------
 # Distroless: no shell, no package manager, runs as a non-root user.
-FROM gcr.io/distroless/nodejs22-debian12:nonroot
+FROM gcr.io/distroless/nodejs22-debian13:nonroot
 WORKDIR /app
 ENV NODE_ENV=production
 COPY --from=build --chown=nonroot:nonroot /app/node_modules ./node_modules
